@@ -1,10 +1,11 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const path = require('path');
 
 module.exports = {
   entry: "./src/index.js",
   output: {
-    filename: "[name].bundle.js",
+    filename: "[name].[hash].bundle.js",
     path: path.resolve(__dirname, "dist")
   },
   module: {
@@ -36,7 +37,7 @@ module.exports = {
           loader: "file-loader",
           options: {
             name: "[name].[hash].[ext]",
-            outputPath: "imgs"
+            outputPath: "imgs" 
           }
         }
       }
@@ -46,6 +47,7 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: "./src/index.html",
       filename: "./index.html"
-    })
+    }),
+    new CleanWebpackPlugin()
   ]
 };

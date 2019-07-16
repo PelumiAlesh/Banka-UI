@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from 'react-redux';
+import store from './reducers/store';
 
+import App from './components/'
 import "./app.css";
 
-const App = () => {
-  return <div>
-    <p>Hello React,Webpack 4 & Babel 7!</p>
-    <img src={ require('./public/Screenshot 2019-07-06 at 1.40.16 PM.png')}></img>
-    </div>;
-};
-
-ReactDOM.render(<App />, document.querySelector("#root"));
+ReactDOM.render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    document.getElementById("root"));

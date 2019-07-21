@@ -14,10 +14,10 @@ describe('SignIn Page Test', () => {
     expect(logIn.length).toBe(1);
   });
 
-  // it('Render SignIn successfully', () => {
-  //   const logo = findByTestAttr(wrapper, 'logo');
-  //   expect(logIn.length).toBe(1);
-  // });
+  it('Render SignIn successfully', () => {
+    const logo = findByTestAttr(wrapper, 'logo');
+    expect(logo.length).toBe(1);
+  });
 
   it('Render Form successfully', () => {
     const form = findByTestAttr(wrapper, 'formComponent');

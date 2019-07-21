@@ -53,7 +53,7 @@ module.exports = {
       '@Common': path.resolve(__dirname, './', 'src/components/common/'),
       '@Pages': path.resolve(__dirname, './', 'src/pages/'),
       '@Layout': path.resolve(__dirname, './', 'src/components/layout/'),
-      '@Utils': path.resolve(__dirname, './', 'src/Utils/'),
+      '@Utils': path.resolve(__dirname, './', 'src/utils/'),
       '@Assets': path.resolve(__dirname, './', 'src/assets/')
     }
   },

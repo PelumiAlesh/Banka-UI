@@ -43,6 +43,20 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    extensions: ['.js'],
+    alias: {
+      '@App': path.resolve(__dirname, './', 'src/'),
+      '@Actions': path.resolve(__dirname, './', 'src/actions/'),
+      '@Reducers': path.resolve(__dirname, './', 'src/reducers/'),
+      '@Components': path.resolve(__dirname, './', 'src/components/'),
+      '@Common': path.resolve(__dirname, './', 'src/components/common/'),
+      '@Pages': path.resolve(__dirname, './', 'src/pages/'),
+      '@Layout': path.resolve(__dirname, './', 'src/components/layout/'),
+      '@Utils': path.resolve(__dirname, './', 'src/Utils/'),
+      '@Assets': path.resolve(__dirname, './', 'src/assets/')
+    }
+  },
   plugins: [
     new HtmlWebPackPlugin({
       template: "./src/index.html",

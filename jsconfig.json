@@ -9,10 +9,10 @@
         "./src/*"
       ],
       "@Actions/*": [
-        "./src/actions/*"
+        "src/redux/actions/*"
       ],
       "@Reducers/*": [
-        "./src/reducers/*"
+        "src/redux/reducers/*"
       ],
       "@Components/*": [
         "./src/components/*"

@@ -15,7 +15,7 @@ const emailIcon = <FontAwesomeIcon icon="at" />;
 const pwIcon = <FontAwesomeIcon icon="lock" />;
 const loaderIcon = <FontAwesomeIcon icon="spinner" spin />;
 
-const SignIn = (props) => {
+export const SignIn = (props) => {
   const [email, updateEmail] = useState('');
   const [password, updatePassword] = useState('');
   const [loading, setLoading] = useState('');

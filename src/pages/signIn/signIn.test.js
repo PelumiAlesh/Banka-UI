@@ -1,12 +1,13 @@
+import '@babel/polyfill';
 import React from 'react';
 import { shallow } from 'enzyme';
 import { findByTestAttr } from '../../utils';
-import SignIn from './signIn';
+import { SignIn } from './signIn';
 
 describe('SignIn Page Test', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<SignIn />);
+    wrapper = shallow(<SignIn signIn={jest.fn()} />);
   });
 
   it('Render SignIn successfully', () => {

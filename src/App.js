@@ -7,10 +7,9 @@ import '@Utils/fontIcons';
 
 import store from '@Reducers/store';
 
-import SignUp from '@Pages/signUp/signUp';
-import SignIn from '@Pages/signIn/signIn';
+import { SignIn, SignUp } from '@Pages/root';
 
-const Root = () => (
+const App = () => (
   <Provider store={store}>
     <Router>
       <Route exact path="/" component={SignIn} />
@@ -20,4 +19,4 @@ const Root = () => (
   </Provider>
 );
 
-export default Root;
+export default App;

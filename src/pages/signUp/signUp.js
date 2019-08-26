@@ -15,7 +15,7 @@ const pwIcon = <FontAwesomeIcon icon="lock" />;
 const userIcon = <FontAwesomeIcon icon="user" />;
 const loaderIcon = <FontAwesomeIcon icon="spinner" spin />;
 
-const SignUp = (props) => {
+export const SignUp = (props) => {
   const [firstName, updateFirstName] = useState('');
   const [lastName, updateLastName] = useState('');
   const [email, updateEmail] = useState('');

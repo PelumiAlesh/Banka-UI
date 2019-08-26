@@ -1,21 +1,20 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-const Form = ({inputs, button}) => {
-  return (
-        <Fragment>
-          <form data-test="formComponent">
-            <div data-test="inputsComponent">
-            </div>
-            {button}
-          </form>
-        </Fragment>
-  )
-}
+const Form = ({ inputs, button }) => (
+  <Fragment>
+    <form data-test="formComponent">
+      <div data-test="inputsComponent">
+        {inputs}
+      </div>
+      {button}
+    </form>
+  </Fragment>
+);
 
 Form.propTypes = {
-  inputs: PropTypes.array,
-  button: PropTypes.object
-}
+  inputs: PropTypes.array.isRequired,
+  button: PropTypes.shape({}).isRequired,
+};
 
 export default Form;

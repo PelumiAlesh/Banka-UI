@@ -2,24 +2,21 @@ import '@babel/polyfill';
 import React from 'react';
 import { shallow } from 'enzyme';
 import { findByTestAttr } from '../../utils';
-import { SignIn } from './signIn';
+import { SignUp } from './signUp';
 
-describe('SignIn Page Test', () => {
+describe('SignUp Page Test', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<SignIn signIn={jest.fn()} />);
+    wrapper = shallow(<SignUp signUp={jest.fn()} />);
   });
-
-  it('Render SignIn successfully', () => {
-    const logIn = findByTestAttr(wrapper, 'logInComponent');
-    expect(logIn.length).toBe(1);
+  it('Render Signup successfully', () => {
+    const signup = findByTestAttr(wrapper, 'signupComponent');
+    expect(signup.length).toBe(1);
   });
-
   it('Render Logo successfully', () => {
     const logo = findByTestAttr(wrapper, 'logo');
     expect(logo.length).toBe(1);
   });
-
   it('Render Form successfully', () => {
     const form = findByTestAttr(wrapper, 'formComponent');
     expect(form.length).toBe(1);

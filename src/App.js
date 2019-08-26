@@ -1,30 +1,22 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-// import { add } from './actions/adder';
-// import {LOGIN, LOGOUT} from './actions/isLogged';
-import SignIn from '@Pages/signIn/signIn';
-import fontIcons from '@Utils/fontIcons';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+import '@Utils/fontIcons';
 
-const App = () => {
-  // const count = useSelector(state => state.Count);
-  // const isLogged = useSelector(state => state.isLogged);
-  // const dispatch = useDispatch() 
-  // const content = <div>
-  //  <p> Current count: {count}</p>
-  //   <button onClick={() => dispatch(add())}>+1</button>
-  //   <br />
-  //   <br />
-  //   <button onClick={() => dispatch(LOGOUT())}>Log out</button>
-  // </div>
+import store from '@Reducers/store';
 
-  // const logIn = <div>
-  //   <p>Log in to access the counter</p>
-  //   <button onClick={() => dispatch(LOGIN())}>Log In</button>
-  // </div>
-  
-  return <div>
-    <SignIn />
-    </div>;
-};
+import { SignIn, SignUp } from '@Pages/root';
+
+const App = () => (
+  <Provider store={store}>
+    <Router>
+      <Route exact path="/" component={SignIn} />
+      <Route exact path="/signup" component={SignUp} />
+      <ToastContainer />
+    </Router>
+  </Provider>
+);
 
 export default App;

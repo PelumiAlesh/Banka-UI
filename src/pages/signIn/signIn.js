@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useState, useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -6,8 +7,8 @@ import logo from '@Assets/imgs/logo.png';
 import Input from '@Common/input/input';
 import Button from '@Common/button/button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link } from 'react-router-dom';
-import { signIn } from '@Actions/authActions';
+import { Link, withRouter } from 'react-router-dom';
+import { logIn } from '@Actions/authActions';
 
 import './signIn.css';
 
@@ -15,13 +16,14 @@ const emailIcon = <FontAwesomeIcon icon="at" />;
 const pwIcon = <FontAwesomeIcon icon="lock" />;
 const loaderIcon = <FontAwesomeIcon icon="spinner" spin />;
 
-export const SignIn = (props) => {
+const SignIn = (props) => {
   const [email, updateEmail] = useState('');
   const [password, updatePassword] = useState('');
-  const [loading, setLoading] = useState('');
+  const [loading, setLoading] = useState(false);
 
-
+  const { history, onSubmit, errors } = props;
   const updateInput = (e, input) => input(e.target.value);
+
   const SignInInputs = () => (
     <Fragment>
       <div className="User-ID">
@@ -53,18 +55,17 @@ export const SignIn = (props) => {
   );
   useEffect(() => {}, [props]);
 
-  const logUserIn = async (e) => {
+  const handleSubmit = async (event) => {
     setLoading(true);
-    e.preventDefault();
+    event.preventDefault();
     const userData = { email, password };
-    await props.signIn(userData);
-    setLoading(false);
+    await onSubmit(userData, history);
   };
 
   const button = (
     <Button
       name="submit"
-      onClick={(e) => { logUserIn(e); }}
+      onClick={(e) => { handleSubmit(e); }}
       className="btn"
       value={loading ? loaderIcon : 'SIGN IN'}
     />
@@ -72,32 +73,41 @@ export const SignIn = (props) => {
 
 
   return (
-    <div className="login_container" data-test="logInComponent">
-      <div className="login-wrapper">
-        <p><img src={logo} alt="Banka Logo" data-test="logo" /></p>
-        <h1>SIGN IN</h1>
-        <form className="login-form" data-test="formComponent">
-          {SignInInputs()}
-          {button}
-          <p>
-            Not a Member?
-            <Link to="/signup"> Sign up now</Link>
-          </p>
-        </form>
+    <div className="auth_container">
+      <div className="login_container" data-test="logInComponent">
+        <div className="login-wrapper">
+          <p><img src={logo} alt="Banka Logo" data-test="logo" /></p>
+          <h1>SIGN IN</h1>
+          {errors.length > 0 && <div className="errorDiv"><p id="errDiv">{errors}</p></div>}
+          <form className="login-form" data-test="formComponent">
+            {SignInInputs()}
+            {button}
+            <p>
+              Not a Member?
+              <Link to="/signup"> Sign up now</Link>
+            </p>
+          </form>
+        </div>
       </div>
     </div>
   );
 };
 
 SignIn.propTypes = {
-  signIn: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  history: PropTypes.shape({}).isRequired,
+  errors: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = state => ({
-  auth: state.authReducer,
+  errors: state.auth.errors,
 });
 
-export default connect(
+const mapDispatchToProps = dispatch => ({
+  onSubmit: (userData, history) => dispatch(logIn(userData, history)),
+});
+
+export default withRouter(connect(
   mapStateToProps,
-  { signIn },
-)(SignIn);
+  mapDispatchToProps,
+)(SignIn));

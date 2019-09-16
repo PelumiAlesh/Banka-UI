@@ -1,0 +1,576 @@
+/*----------------------- welcome message Styling --------------------- */
+section .welcome_message {
+  width: 90vh;
+  margin-top: 9rem;
+  padding: 0 3rem 0 3rem;
+  word-break: break-word;
+}
+@media screen and (max-width: 630px) {
+  section .welcome_message {
+    margin-top: 6rem !important;
+    padding-left: 10vw;
+  }
+}
+#card_type {
+  text-transform: capitalize;
+}
+section .welcome_message p {
+  font-size: 1.5rem;
+  line-height: 0.5rem;
+  font-weight: 0.2;
+}
+section .transaction_message {
+  padding: 0 3rem 0 3rem;
+  margin-bottom: 3rem;
+}
+section .transaction_message p {
+  font-size: 1.5rem;
+  line-height: 0.5rem;
+  font-weight: 0.2;
+}
+/*----------------------- Account Details Styling --------------------- */
+.account_details {
+  font-family: "Roboto Condensed", sans-serif;
+  line-height: 2rem;
+  flex-shrink: 1;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 3rem 1rem 2rem 1rem;
+  background-color: white;
+  padding: 1rem 1.5rem 1rem 1.5rem;
+  border-radius: 7px;
+  border: 0.9px solid #95bbdf;
+}
+@media screen and (max-width: 1031px) {
+  .welcome_message {
+    padding-top: 10% !important;
+  }
+}
+@media screen and (max-width: 960px) {
+  .account_details {
+    flex-wrap: wrap;
+  }
+  .account_details .card_info {
+    width: 50% !important;
+  }
+  .account_details .main_balance {
+    width: 50% !important;
+  }
+  .account_details .accounts_info {
+    margin-top: 3rem !important;
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 630px) {
+  .welcome_message {
+    padding-top: 5% !important;
+    margin-top: 16% !important;
+  }
+  html,
+  body {
+    width: 100vw !important;
+    overflow-x: hidden;
+  }
+  
+  .account_details {
+    flex-shrink: 1 !important;
+    width: 90vw !important;
+  }
+  .account_details .card_info {
+    width: 100% !important;
+  }
+  .account_details .main_balance {
+    width: 100% !important;
+  }
+  .account_details #main_bal,
+  .prof_top #main_bal {
+    font-size: 2rem !important;
+  }
+  .account_details .accounts_info {
+    margin-top: 3rem !important;
+    flex-direction: column !important;
+  }
+  .account_details .accounts_balance {
+    flex-direction: column;
+  }
+  .account_details .accounts_balance p {
+    width: 100%;
+  }
+  .account_details .accounts_info .full_profile_btn {
+    display: flex;
+    align-items: center;
+  }
+  .account_details .accounts_balance p {
+    width: 100% !important;
+  }
+  .account_details .accounts_info .full_profile_btn #btn {
+    width: 100% !important;
+  }
+}
+/* ------------------- */
+.account_details .card_info {
+  font-weight: 200;
+  letter-spacing: 2px;
+  font-size: 1.5rem;
+  width: 25%;
+}
+.account_details #thick,
+.prof_top #thick {
+  letter-spacing: 2px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.account_details #fade,
+.prof_top #fade {
+  color: #909497;
+  font-size: 1rem;
+}
+.account_details .main_balance,
+.prof_top .main_balance {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25%;
+}
+.account_details #main_bal,
+.prof_top #main_bal {
+  color: yellowgreen;
+  font-size: 4vw;
+  letter-spacing: 1px;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 2rem;
+}
+.account_details sup {
+  color: yellowgreen;
+  font-size: 2rem;
+}
+.account_details .accounts_info {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.account_details .accounts_balance {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.account_details .accounts_balance p {
+  width: 50%;
+}
+.account_details .accounts_balance .green {
+  color: yellowgreen;
+  font-weight: 100;
+}
+.account_details .accounts_balance .red {
+  color: red;
+  font-weight: 300;
+}
+
+.account_details .accounts_info .full_profile_btn #btn {
+  height: 4rem;
+  float: right;
+  width: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  background-color: rgba(231, 54, 121, 0.9);
+  color:whitesmoke;
+}
+.account_details .accounts_info .full_profile_btn #btn:hover {
+  background-color: rgba(234, 77, 136, 0.8);
+}
+
+/*----------------------- Account Transactions Styling --------------------- */
+.transactions {
+  background-color: white;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  color: black;
+  margin: 1rem;
+  border: 0.9px solid #95bbdf;
+}
+@media screen and (max-width: 630px) {
+  .transactions .row .column:nth-child(3),
+  .transactions .row .column:nth-child(2) {
+    display: none;
+  }
+  .transactions {
+    width: 90vw !important;
+  }
+  .transactions .row .column {
+    white-space: nowrap;
+  }
+  .transactions .table_body .column:nth-last-child(1) {
+    text-align: center !important;
+  }
+  .transactions .row {
+    justify-content: space-between !important;
+  }
+  .transaction_message p {
+    font-size: 1.3rem !important;
+  }
+}
+.transactions .table_head {
+  border-bottom: 1px solid black !important;
+  border-radius: 7px 7px 0 0;
+}
+.transactions .table_head .column {
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: left;
+}
+.transactions .table_head .column:nth-last-child(1) {
+  text-align: right;
+  padding-right: 1rem;
+}
+.transactions .table_head {
+  line-height: 30px;
+  vertical-align: middle;
+}
+.transactions .table_body .row:nth-child(odd) {
+  background-color: white;
+  border-bottom: 1px solid black !important;
+}
+.transactions .table_body .row:nth-child(even) {
+  background-color: white;
+  border-bottom: 1px solid black !important;
+
+}
+.transactions .table_body .row:nth-last-child(1) {
+  border-radius: 0 0 7px 7px;
+  border-bottom: none!important;
+
+}
+.transactions .table_body .column {
+  text-align: left;
+  line-height: 28px;
+  vertical-align: middle;
+}
+.transactions .row {
+  padding: 1rem;
+  display: flex;
+}
+.transactions .row .column {
+  flex: 0 1 25%;
+}
+.transactions #green,
+.transactions #recieved,
+.pro_pic_details .green {
+  color: yellowgreen !important;
+}
+.transactions #red,
+.transactions #sent {
+  color: #ff1a1a;
+}
+.transactions .amt::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.transactions #sent::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f30c";
+}
+.transactions #recieved::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f309";
+}
+
+/*----------------------- Create Account Div Styling --------------------- */
+section .create_acct_div {
+  display: flex;
+  background-color: white;
+  padding: 1rem 1.5rem 1rem 1.5rem;
+  border-radius: 7px;
+  border: 0.9px solid #95bbdf;
+  margin: 1rem;
+  margin-bottom: 2rem;
+  color: black;
+  justify-content: space-between;
+}
+@media screen and (max-width: 630px) {
+  section .create_acct_div {
+    width: 90vw;
+    flex-direction: column;
+  }
+  section .create_acct_div p {
+    font-size: 1rem !important;
+    letter-spacing: 0rem !important;
+    text-align: center;
+  }
+  section .create_acct_div .btn,
+  .prof_top .btn {
+    height: 2rem;;
+  }
+}
+@media screen and (max-width: 768px) {
+  section .create_acct_div p {
+    letter-spacing: 0.1rem !important;
+    font-size: 1.4rem
+  }
+}
+section .create_acct_div .btn,
+.prof_top .btn {
+  cursor: pointer;
+  font-size: 1rem !important;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  background-color: rgba(231, 54, 121, 0.9);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  color: whitesmoke;
+  max-height: 3rem;
+  flex: 1 1 auto;
+}
+section .create_acct_div .btn{
+  flex: 0 1 auto !important;
+  padding: 1rem;
+}
+section .create_acct_div p {
+  font-size: 2rem;
+  letter-spacing: 0.3rem;
+}
+section .create_acct_div .btn:hover,
+.main_balance .btn:hover {
+  background-color: rgba(234, 77, 136, 0.8);
+}
+
+/* @media screen and (max-width: 444px) {
+  .trans_body {
+    width: 100vw;
+    margin-top: 15% !important;
+    box-sizing: border-box;
+  }
+  .trans_body h2 {
+    padding-left: 25vw !important;
+    font-size: 1.5rem !important;
+  }
+  .trans_body .investment_transactions_div{
+    margin: 3rem 1rem 2rem 1rem;
+    background-color: white;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    border-radius: 7px;
+    border: 0.9px solid #95bbdf !important;
+    min-width: 93vw;
+    overflow: hidden;
+  }
+  .trans_body .investment_transactions_div .row .cell:nth-child(2){
+    display: none !important;
+  }
+}
+@media screen and (max-width: 650px) {
+  .trans_body .cell:nth-child(5) {
+    display: table-cell !important;
+  }
+  .trans_body .cell:nth-child(3),
+  .trans_body .cell:nth-child(4) {
+    display: none !important;
+  }
+  .trans_body .investment_transactions_div .cell {
+    width: 33% !important;
+  }
+}
+.trans_body .investment_transactions_div .cell{
+  display: table-cell;
+  padding: 0.3rem 5vw !important;
+  width: 12%;
+}
+.trans_body .investment_transactions_div .cell:nth-child(2){
+  width: 40%;
+}
+.trans_body .investment_transactions_div .cell:nth-child(1),
+.trans_body .savings_transaction_div .cell:nth-child(1),
+.trans_body .credit_transactions_div .cell:nth-child(1) {
+  width: 20%  
+}
+.trans_body .investment_transactions_div .header,
+.trans_body .savings_transaction_div .header,
+.trans_body .credit_transactions_div .header {
+  color: #d44179 !important;
+  font-weight: bold !important;
+}
+@media screen and (max-width: 1065px) {
+  .trans_body .investment_transactions_div{
+    width: 95vw !important;
+  }
+  .cell {
+    display: table-cell;
+    padding: 0.3rem 5vw !important;
+  }
+  .trans_body {
+    margin-top: 20% !important;
+  }
+}
+.trans_body {
+  margin-top: 10%;
+}
+.trans_flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex: 1 1 auto;
+}
+.trans_body .investment_transactions_div,
+.trans_body .savings_transaction_div,
+.trans_body .credit_transactions_div {
+  display: table;
+  margin: 1rem 1rem 2rem 1rem;
+  background-color: white;
+  padding: 1rem 1.5rem 1rem 1.5rem;
+  border-radius: 7px;
+  border: 0.9px solid #95bbdf;
+  width: 98vw;
+}
+.trans_body .investment_transactions_div .row,
+.trans_body .savings_transaction_div .row,
+.trans_body .credit_transactions_div .row {
+  display: flex;
+  border-bottom: 1px solid black;
+}
+
+.cell {
+  display: table-cell;
+  padding: 0.3rem 2vw;
+}
+.trans_body .cell:nth-child(5),
+.trans_body .cell:nth-child(5) {
+  display: none;
+}
+.trans_body td:nth-child(2),
+.trans_body th:nth-child(2) {
+  display: initial;
+}
+.trans_body .row,
+.trans_body .row {
+  padding: 0.5rem;
+  color: black !important;
+}
+.trans_body label {
+  text-transform: uppercase;
+  color: black;
+  font-weight: bold;
+  margin-left: 1rem;
+  border-bottom: 2px solid black;
+}
+.trans_body h2 {
+  padding-left: 35vw;
+  font-size: 3rem;
+} */
+
+
+/* MODAL */
+#create_account_modal,
+#create_account_modal_ {
+  position: fixed;
+  z-index: 1; 
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0, 0, 0, 0.637);
+}
+@media screen and (max-width: 960px){
+  .modal_content {
+    width: 90% !important; 
+  }
+  #create_account_modal input,
+  #create_account_modal select,
+  #create_account_modal_ input,
+  #create_account_modal_ select  {
+  width: 90% !important;
+  }
+  #create_account_modal .btn,
+  #create_account_modal_ .btn  {
+    width: 90% !important;
+  }
+}
+@media screen and (max-width: 960px){
+  #create_account_modal i,
+  #create_account_modal_ i {
+    display: none;
+  }
+}
+.content_header{
+ border-bottom: 1px solid black;
+ margin-bottom: 2rem;
+ padding: 0.7rem;
+ background-color: #ea4c88;
+}
+.modal_content {
+  background-color: #fefefe;
+  margin: auto;
+  text-align: center;
+  padding-bottom: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  height: auto;
+}
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#create_account_modal input,
+#create_account_modal select,
+#create_account_modal_ input,
+#create_account_modal_ select {
+  border: 1px solid #d44179;
+  height: 2.5rem;
+  width: 70%;
+  border-radius: 6px;
+  margin: 0.3rem;
+  font-size: 1rem;
+  padding-left: 0.3rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin-bottom: 1rem;
+}
+#create_account_modal .btn,
+#create_account_modal_ .btn  {
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  background-color: rgba(234, 77, 136, 0.8);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  color: white;
+  width: 70%;
+  height: 3rem;
+}
+#create_account_modal .btn:hover,
+#create_account_modal_ .btn:hover {
+background-color: rgba(231, 54, 121, 0.9);
+}

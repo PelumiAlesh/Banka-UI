@@ -1,28 +1,27 @@
-/* eslint-disable import/prefer-default-export */
 import isEmpty from '@Utils/isEmpty';
-import { SET_USER, LOADING } from '../actions/types';
+import { SET_USER, SET_ERROR } from '../actions/types';
 
-const initialState = {
+export const initialState = {
   isAuthenticated: false,
   loading: false,
   user: {},
+  errors: [],
 };
 
 export const authReducer = (state = initialState, action) => {
-  switch (action.type) {
+  const { type, payload } = action;
+  switch (type) {
     case SET_USER:
       return {
         ...state,
-        user: action.payload,
-        isAuthenticated: !isEmpty(action.payload),
+        user: payload,
+        isAuthenticated: !isEmpty(payload),
       };
-
-    case LOADING:
+    case SET_ERROR:
       return {
         ...state,
-        loading: action.payload,
+        errors: [...payload],
       };
-
     default:
       return state;
   }

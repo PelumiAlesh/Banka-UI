@@ -4,6 +4,8 @@ import {
   faLock,
   faUser,
   faSpinner,
+  faMoneyCheckAlt,
+  faDollarSign,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -11,4 +13,6 @@ library.add(
   faLock,
   faUser,
   faSpinner,
+  faMoneyCheckAlt,
+  faDollarSign,
 );

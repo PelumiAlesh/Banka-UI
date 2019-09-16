@@ -64,4 +64,7 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
   ],
+  devServer: {
+    historyApiFallback: true,
+  },
 };

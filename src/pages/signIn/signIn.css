@@ -18,7 +18,9 @@
   padding: 0;
   margin: 0;
 }
-html {
+.auth_container {
+  width: 100vw;
+  height: 100vh;
   background-image: linear-gradient(rgb(26, 26, 26, 0.9), rgb(26, 26, 26, 0.9)),
   url("../../assets/imgs/background.jpg");
   background-repeat: no-repeat;
@@ -33,6 +35,15 @@ body {
   font-size: 1rem;
   line-height: 1.4;
 }
+.errorDiv{
+  background-color: rgba(214, 93, 93, 0.37);
+  margin-bottom: 1rem;
+  width: 80%;
+}
+#errDiv{
+  color: red;
+  padding: 1rem;
+/* }
 .login_container {
   align-items: center;
   display: flex;
@@ -125,7 +136,6 @@ body {
   .login_container,
   .login-wrapper {
     width: 97vw;
-    margin-top: 5vh;
   }
   .login-form .User-ID label span,
   .login-form .password label span {

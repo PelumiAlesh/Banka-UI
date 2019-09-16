@@ -2,7 +2,7 @@ import '@babel/polyfill';
 import React from 'react';
 import { shallow } from 'enzyme';
 import { findByTestAttr } from '../../utils';
-import { SignIn } from './signIn';
+import SignIn from './SignIn';
 
 describe('SignIn Page Test', () => {
   let wrapper;

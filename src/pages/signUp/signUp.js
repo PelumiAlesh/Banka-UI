@@ -15,12 +15,14 @@ const pwIcon = <FontAwesomeIcon icon="lock" />;
 const userIcon = <FontAwesomeIcon icon="user" />;
 const loaderIcon = <FontAwesomeIcon icon="spinner" spin />;
 
-export const SignUp = (props) => {
+const SignUp = (props) => {
   const [firstName, updateFirstName] = useState('');
   const [lastName, updateLastName] = useState('');
   const [email, updateEmail] = useState('');
   const [password, updatePassword] = useState('');
   const [loading, setLoading] = useState('');
+
+  const { history, onSubmit, errors } = props;
 
   const updateInput = (e, input) => input(e.target.value);
 
@@ -80,7 +82,7 @@ export const SignUp = (props) => {
     </Fragment>
   );
 
-  const signUserUp = async (e) => {
+  const handleSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
     const userData = {
@@ -89,7 +91,7 @@ export const SignUp = (props) => {
       email,
       password,
     };
-    await props.signUp(userData);
+    await onSubmit(userData, history);
     setLoading(false);
   };
 
@@ -98,42 +100,47 @@ export const SignUp = (props) => {
       name="signUp"
       className="btn"
       value={loading ? loaderIcon : 'Create your account'}
-      onClick={(e) => { signUserUp(e); }}
+      onClick={(e) => { handleSubmit(e); }}
     />
   );
 
   return (
-    <div className="signup_container" data-test="signupComponent">
-      <div className="signup-wrapper">
-        <p><img src={logo} alt="logo" data-test="logo" /></p>
-        <h1>Sign-up</h1>
-        <div className="errorDiv">
-          <p id="errDiv" />
+    <div className="auth_container">
+      <div className="signup_container" data-test="signupComponent">
+        <div className="signup-wrapper">
+          <p><img src={logo} alt="logo" data-test="logo" /></p>
+          <h1>Sign-up</h1>
+          {errors.length > 0 && <div className="errorDiv"><p id="errDiv">{errors}</p></div>}
+          <form className="signup-form" data-test="formComponent" method="POST">
+            {SignUpInputs()}
+            {button}
+            <p>
+                Already have an account?
+              <Link to="/"> Log in now </Link>
+              <span className="entypo-right-thin" />
+            </p>
+          </form>
         </div>
-        <form className="signup-form" data-test="formComponent" method="POST">
-          {SignUpInputs()}
-          {button}
-          <p>
-               Already have an account?
-            <Link to="/"> Log in now </Link>
-            <span className="entypo-right-thin" />
-          </p>
-        </form>
       </div>
     </div>
-
   );
 };
 
 SignUp.propTypes = {
-  signUp: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  history: PropTypes.shape({}).isRequired,
+  errors: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = state => ({
-  auth: state.authReducer,
+  errors: state.auth.errors,
+});
+
+const mapDispatchToProps = dispatch => ({
+  onSubmit: (userData, history) => dispatch(signUp(userData, history)),
 });
 
 export default connect(
   mapStateToProps,
-  { signUp },
+  mapDispatchToProps,
 )(SignUp);

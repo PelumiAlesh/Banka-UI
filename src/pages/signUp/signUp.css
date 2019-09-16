@@ -1,37 +1,186 @@
-@import url(https://fonts.googleapis.com/css?family=Varela);
 
-
-:root {
-  --primaryColor: #ea4c88;
-  --primaryHoverColor: #d44179;
-  --secondaryColor: rgba(59, 65, 72, 0.8);
-  --secondaryHoverColor: #434a52;
-  --baseColor: #606468;
-  --basicColor: #363b41;
-  --bodyFontFamily: "Open Sans";
-  --bodyFontFamilyFallback: sans-serif;
-  --limeColor: lime;
+.login_container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  max-width: 760px;
+  min-width: 50vw;
+  margin: auto auto;
+}
+.login-wrapper,
+.login-form {
+  /* Center elements */
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+.login-form .User-ID input:focus,
+.login-form .password input:focus {
+  outline: lime solid thin;
+  background-color: var(--secondaryHoverColor);
 }
-html {
-  background-image: linear-gradient(rgb(26, 26, 26, 0.9), rgb(26, 26, 26, 0.9)),
-  url("../../assets/imgs/background.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+.login-form .User-ID input:hover,
+.login-form .password input:hover {
+  background-color: var(--secondaryHoverColor);
 }
-body {
-  font-family: 'Open Sans', sans-serif;
+.login-wrapper {
+  min-width: 50vw;
+  margin-top: 10%;
+}
+@media (min-width: 484px) {
+  .login-wrapper {
+    width: 484px;
+    height: 484px;
+  }
+}
+
+.login-form {
+  z-index: 1;
+  width: 100%;
+  max-width: 380px;
+  width: 100%;
+  padding: 0 20px;
+}
+.login-form .password {
+  margin-top: 20px;
+  width: 100%;
+}
+.login-form .User-ID {
+  width: 100%;
+}
+.login-form .User-ID label,
+.login-form .password label {
+  float: left;
+  display: block;
+  width: 15%;
+  height: 55px;
+  text-align: center;
+}
+.login-form .User-ID label span,
+.login-form .password label span {
+  line-height: 55px;
+  vertical-align: middle;
+}
+.login-form .User-ID input,
+.login-form .password input {
+  float: right;
+  display: block;
+  width: 85%;
+  height: 55px;
+  padding: 15px 20px;
   font-size: 1rem;
-  line-height: 1.4;
+}
+.login-form .btn {
+  width: 100%;
+  height: 55px;
+  margin: 26px 0 20px;
+}
+.login-form p span {
+  padding-left: 5px;
+}
+/* ---LOGIN MEDIAS ----*/
+@media (min-width: 380px) {
+  .login-form {
+    padding: 0;
+  }
+}
+@media (max-width: 504px) {
+  .login_container,
+  .login-wrapper {
+    width: 97vw;
+  }
+  .login-form .User-ID label span,
+  .login-form .password label span {
+    font-size: 5vw !important;
+  }
+}
+/* --- END LOGIN MEDIAS ----*/
+
+.login-form .User-ID label,
+.login-form .password label {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background-color: #363b41;
+  background-color: rgba(54, 59, 65, 0.8);
+}
+.login-form .User-ID label span,
+.login-form .password label span {
+  font-size: 2rem;
+  color: #606468;
+}
+.login-form .User-ID input,
+.login-form .password input {
+  border: none;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-color: #3b4148;
+  background-color: rgba(59, 65, 72, 0.8);
+  color: white;
+}
+.login-form .User-ID input::-webkit-input-placeholder,
+.login-form .password input::-webkit-input-placeholder {
+  color: #787e83;
+  font-size: 1rem;
+}
+.login-form .User-ID input:-ms-input-placeholder,
+.login-form .password input:-ms-input-placeholder {
+  color: #787e83;
+  font-size: 1rem;
+}
+.login-form .User-ID input::-ms-input-placeholder,
+.login-form .password input::-ms-input-placeholder {
+  color: #787e83;
+  font-size: 1rem;
+}
+.login-form .User-ID input::placeholder,
+.login-form .password input::placeholder {
+  color: #787e83;
+  font-size: 1rem;
+}
+.login-form .btn {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  background-color: rgba(234, 77, 136, 0.8);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+.login-form .btn:hover {
+  background-color: #e73679;
+  background-color: rgba(231, 54, 121, 0.9);
+}
+.login-form a {
+  font-weight: 300;
+  text-decoration: none;
+  color: lime;
+}
+a:hover {
+  color: lime;
+  text-decoration: underline;
+}
+.login-form p {
+  margin: 0;
+  text-align: center;
+  color: #fff;
+}
+.login-wrapper h1 {
+  color: aliceblue;
+  text-transform: uppercase;
+  margin: 2rem;
+}
+.login-wrapper img {
+  width: 300px;
+  margin-top: 10vh;
+}
+.entypo-user {
+  padding: 10px;
 }
 
 .signup_container {
@@ -255,4 +404,274 @@ a:hover {
 .signup-wrapper img {
   width: 300px;
   margin-top: 8vh;
+}
+
+/* ---------------------    ENDING SIGN UP STYLING -----------------------------*/
+
+/* ---------------------    USER: CREATE ACCOUNT STYLING -----------------------------*/
+
+.crtAcct_container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.crtAcct-wrapper,
+.crtAcct-form {
+  /* Center elements */
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signup_container .acct-type select:focus,
+.crtAcct-form .acct-type select:focus,
+.signup-form .m_name input:focus,
+.signup-form .state select:focus,
+.signup-form .address input:focus,
+.crtAcct-form .bvn input:focus {
+  outline: lime solid thin;
+  background-color: var(--secondaryHoverColor);
+}
+.signup_container .acct-type  select:hover,
+.crtAcct-form .acct-type select:hover,
+.signup-form .m_name input:hover,
+.signup-form .state select:hover,
+.signup-form .address input:hover,
+.crtAcct-form .bvn input:hover {
+  background-color: var(--secondaryHoverColor);
+}
+.crtAcct-wrapper {
+  width: 50%;
+  height: 320px;
+  margin-top: 10%;
+}
+/*----- CREATE ACCT MEDIA -------*/
+@media (min-width: 484px) {
+  .crtAcct-wrapper {
+    width: 484px;
+    height: 484px;
+  }
+}
+@media screen and (max-width: 503px) {
+  .crtAcct_container,
+  .crtAcct-wrapper {
+    width: 95vw;
+    margin-top: 9vh;
+  }
+  .signup_container .acct-type  label span,
+  .crtAcct-form .acct-type label span,
+  .signup-form .m_name label span,
+  .signup-form .state label span,
+  .signup-form .address label span,
+  .crtAcct-form .bvn label span {
+    font-size: 5vw !important;
+  }
+  .crtAcct-wrapper h1 {
+    font-size: 1.5rem;
+  }
+}
+
+.crtAcct-form {
+  z-index: 1;
+  width: 100%;
+  max-width: 380px;
+  width: 100%;
+  padding: 0 20px;
+}
+.signup_container .acct-type ,
+.crtAcct-form .acct-type {
+  width: 100%;
+}
+
+.signup-form .m_name,
+.signup-form .address,
+.signup-form .state,
+.crtAcct-form .bvn {
+  margin-top: 20px;
+  width: 100%;
+}
+.signup_container .acct-type  label,
+.crtAcct-form .acct-type label,
+.signup-form .m_name label,
+.signup-form .state label,
+.signup-form .address label,
+.crtAcct-form .bvn label {
+  float: left;
+  display: block;
+  width: 15%;
+  height: 55px;
+  text-align: center;
+}
+.signup_container .acct-type label span,
+.crtAcct-form .acct-type label span,
+.signup-form .m_name label span,
+.signup-form .state label span,
+.signup-form .address label span,
+.crtAcct-form .bvn label span {
+  line-height: 55px;
+  vertical-align: middle;
+}
+.signup_container .acct-type select,
+.crtAcct-form .acct-type select,
+.signup-form .m_name input,
+.signup-form .state select,
+.signup-form .address input,
+.crtAcct-form .bvn input {
+  float: right !important;
+  display: block !important;
+  width: 85% !important;
+  height: 55px;
+  padding: 15px 20px;
+  font-size: 1rem;
+}
+.crtAcct-form .btn {
+  width: 100%;
+  height: 55px;
+  margin: 26px 0 20px;
+}
+.crtAcct-form p span {
+  padding-left: 5px;
+}
+@media (min-width: 380px) {
+  .crtAcct-form {
+    padding: 0;
+  }
+}
+.signup_container .acct-type label,
+.crtAcct-form .acct-type label,
+.signup-form .m_name label,
+.signup-form .state label,
+.signup-form .address label,
+.crtAcct-form .bvn label {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background-color: #363b41;
+  background-color: rgba(54, 59, 65, 0.8);
+}
+.signup_container .acct-type  label span,
+.crtAcct-form .acct-type label span,
+.signup-form .m_name label span,
+.signup-form .state label span,
+.signup-form .address label span,
+.crtAcct-form .bvn label span {
+  font-size: 28px;
+  color: #606468;
+}
+.signup_container .acct-type select,
+.crtAcct-form .acct-type select,
+.signup-form .state select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+.select-wrap {
+  position: relative;
+}
+.select__arrow {
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  border-style: solid;
+  border-width: 8px 5px 0 5px;
+  border-color: black transparent transparent transparent;
+}
+.signup_container .acct-type select,
+.crtAcct-form .acct-type select,
+.signup-form .m_name input,
+.signup-form .state select,
+.signup-form .address input,
+.crtAcct-form .bvn input {
+  border: none;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-color: #3b4148;
+  background-color: rgba(59, 65, 72, 0.8);
+  color: white;
+}
+.signup_container .acct-type select::-webkit-input-placeholder,
+.crtAcct-form .acct-type select::-webkit-input-placeholder,
+.signup-form .m_name input::-webkit-input-placeholder,
+.signup-form .state select::-webkit-input-placeholder,
+.signup-form .address input::-webkit-input-placeholder,
+.crtAcct-form .bvn input::-webkit-input-placeholder {
+  color: #787e83;
+  font-size: 1rem;
+}
+.signup_container .acct-type select:-ms-input-placeholder,
+.crtAcct-form .acct-type select:-ms-input-placeholder,
+.signup-form .m_name input:-ms-input-placeholder,
+.signup-form .state select:-ms-input-placeholder,
+.signup-form .address input:-ms-input-placeholder,
+.crtAcct-form .bvn input:-ms-input-placeholder {
+  color: #787e83;
+  font-size: 1rem;
+}
+.crtAcct-form .acct-type select::-ms-input-placeholder,
+.signup-form .m_name input::-ms-input-placeholder,
+.signup-form .state select::-ms-input-placeholder,
+.signup-form .address input::-ms-input-placeholder,
+.crtAcct-form .bvn input::-ms-input-placeholder {
+  color: #787e83;
+  font-size: 1rem;
+}
+.signup_container .acct-type select::placeholder,
+.crtAcct-form .acct-type select::placeholder,
+.signup-form .m_name input::placeholder,
+.signup-form .state select::placeholder,
+.signup-form .address input::placeholder,
+.crtAcct-form .bvn input::placeholder {
+  color: #787e83;
+  font-size: 1rem;
+}
+.crtAcct-form .btn {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--secondaryColor);
+  background-color: rgba(234, 77, 136, 0.8);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+.crtAcct-form .btn:hover {
+  background-color: #e73679;
+  background-color: rgba(231, 54, 121, 0.9);
+}
+.crtAcct-form a {
+  font-weight: 300;
+  text-decoration: none;
+  color: lime;
+}
+a:hover {
+  color: lime;
+  text-decoration: underline;
+}
+.crtAcct-form p {
+  margin: 0;
+  text-align: center;
+  color: #fff;
+}
+.crtAcct-wrapper h1 {
+  color: aliceblue;
+  text-transform: uppercase;
+  margin: 2rem;
+  text-align: center;
+}
+.crtAcct-wrapper img {
+  width: 300px;
+  margin-top: 40%;
+}
+.signup_container .acct-type {
+  padding-top: 1rem;
 }
